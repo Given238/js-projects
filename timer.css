@@ -1,0 +1,41 @@
+.countdown-circle{
+                border:solid;
+                display:inline;
+                font-size:125px;
+                padding: 35px 50px;
+                border-radius:50%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+            }
+
+            .container{
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                gap:24px;
+            }
+            .buttons{
+                display:flex;
+                flex-wrap: wrap;
+                justify-content:center;
+                gap:12px;
+            }
+            button{
+                  padding: 10px 28px;
+                  border-radius: 8px;
+                  border: 2px solid;
+                  font-size: 16px;
+                  font-weight:bold;
+                  cursor: pointer;
+                  color:white;
+            }
+            .start-button{
+                background-color:green;
+            }
+            .end-button{
+                background-color:red;
+            }
+            .reset-button{
+                background-color:rgb(90, 89, 89);
+            }

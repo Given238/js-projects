@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tip Calculator</title>
+        <style>
+            .container{
+                display: flex;
+                flex-direction:column;
+                align-items:center;
+                border: 2px solid black;
+                padding-left: 20px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "topSection">
+                <h1>Tip Calculator</h1>
+            </div>
+            <div class = "billSection">
+                <input id = "bill" type = "number" value = "0"/>
+                <p id = "totalBill" class = "totalBill">Total Bill:</p>
+            </div>
+            <div class = "calculateSection">
+                <div class = "tipSection">
+                    <input type = "range" id = "tip" name = "tip"/>
+                    <label for="tip">Tip</label>
+                </div>
+                <div class = "splitSection">
+                    <input type = "range" id = "split" name = "split" min = "0" max = "50"/>
+                    <label for="split">Split</label>
+                </div>
+            </div>
+            <div class = "resultSection">
+                <p id = "tipSplit" class = "tipSplit">Tip per person:</p>
+                <p id = "totalSplit" class = "totalSplit">Total per person</p>
+            </div>
+            <div class = "clearSection">
+                <button id = "clearButton" class = "clearButton">
+                    Clear
+                </button>
+            </div>
+        </div>
+    </body>
+    <script>
+
+    </script>
+</html>
