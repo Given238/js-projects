@@ -3,13 +3,36 @@
     <head>
         <title>Tip Calculator</title>
         <style>
+
+            body{
+                display:flex;
+                flex-direction:row;
+                justify-content:center;
+            }
+
             .container{
                 display: flex;
                 flex-direction:column;
                 align-items:center;
                 border: 2px solid black;
-                padding-left: 20px;
+                font-family: Arial;
+                width: 350px;
+                height: 325px;
+                border-radius: 10px;
             }
+
+
+            .clearButton{
+                background-color:red;
+                font-weight:bold;
+                color:white;
+                border:none;
+                width: 100px;
+                height:35px;
+                border-radius:5px;
+                cursor:pointer;
+            }
+
         </style>
 
     </head>
@@ -20,21 +43,23 @@
             </div>
             <div class = "billSection">
                 <input id = "bill" type = "number" value = "0"/>
-                <p id = "totalBill" class = "totalBill">Total Bill:</p>
+                <p id = "totalBill" class = "totalBill">Total Bill:$</p>
             </div>
             <div class = "calculateSection">
                 <div class = "tipSection">
                     <input type = "range" id = "tip" name = "tip"/>
+                    <span id="tipValue">0</span>
                     <label for="tip">Tip</label>
                 </div>
                 <div class = "splitSection">
                     <input type = "range" id = "split" name = "split" min = "0" max = "50"/>
+                    <span id="splitValue">0</span>
                     <label for="split">Split</label>
                 </div>
             </div>
             <div class = "resultSection">
-                <p id = "tipSplit" class = "tipSplit">Tip per person:</p>
-                <p id = "totalSplit" class = "totalSplit">Total per person</p>
+                <p id = "tipSplit" class = "tipSplit">Tip per person:$</p>
+                <p id = "totalSplit" class = "totalSplit">Total per person:$</p>
             </div>
             <div class = "clearSection">
                 <button id = "clearButton" class = "clearButton">
@@ -44,6 +69,57 @@
         </div>
     </body>
     <script>
+        function calculate(){
+            const bill = parseFloat(billInput.value)
+            const tip = parseFloat(tipInput.value)
+            const split = parseFloat(splitInput.value)
+
+            const tipPerPerson = (bill * (tip/100)) / split
+
+            const totalPerPerson = (bill + (bill * (tip/100))) / split
+
+
+            tipValue.textContent = tip + "%"
+            splitValue.textContent = split + " people"
+            totalBill.textContent = "Total bill:$" + bill
+            tipSplit.textContent = "Tip per person:$" + tipPerPerson
+            totalSplit.textContent = "Total per person:$" + totalPerPerson
+        }
+        function clearInput(){
+
+
+                billInput.value = 0
+                tipInput.value = 0
+                splitInput.value = 0
+
+                tipValue.textContent = ""
+                splitValue.textContent = ""
+
+                tipSplit.textContent = "Tip per person:$"
+                totalSplit.textContent = "Total per person:$"
+                totalBill.textContent = "Total bill:$"
+        }
+
+            const clearButton = document.getElementById("clearButton")
+
+            const billInput = document.getElementById("bill")
+            const tipInput = document.getElementById("tip")
+            const splitInput = document.getElementById("split")
+
+            const tipSplit = document.getElementById("tipSplit")
+            const totalSplit = document.getElementById("totalSplit")
+            const totalBill = document.getElementById("totalBill")
+            
+            const tipValue = document.getElementById("tipValue")
+            const splitValue = document.getElementById("splitValue")
+
+
+            billInput.addEventListener("input",calculate)
+            tipInput.addEventListener("input",calculate)
+            splitInput.addEventListener("input",calculate)
+            clearButton.addEventListener("click",clearInput)
+
+
 
     </script>
 </html>
